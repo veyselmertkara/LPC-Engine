@@ -1,0 +1,224 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;800&family=Orbitron:wght@400;700;900&display=swap');
+
+/* Navy Blue & Black Theme - Darker - No Animations */
+:root {
+    --navy-primary: #020D1A;
+    --navy-secondary: #0A1520;
+    --electric-blue: #00D9FF;
+    --ice-blue: #7DD3FC;
+    --pure-black: #000000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #000000 0%, #020D1A 25%, #0A1520 50%, #020D1A 75%, #000000 100%);
+    color: #E0E7FF;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(circle at 20% 50%, rgba(0, 217, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(61, 90, 128, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.5;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(0, 217, 255, 0.05) 1px, rgba(0, 217, 255, 0.05) 2px),
+        repeating-linear-gradient(90deg, transparent, transparent 1px, rgba(0, 217, 255, 0.05) 1px, rgba(0, 217, 255, 0.05) 2px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.glass-effect {
+    background: rgba(10, 25, 41, 0.7);
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(0, 217, 255, 0.3);
+    box-shadow:
+        0 8px 32px 0 rgba(0, 0, 0, 0.6),
+        inset 0 1px 0 0 rgba(0, 217, 255, 0.1);
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, #00D9FF, #7DD3FC, #00D9FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.glow {
+    box-shadow:
+        0 0 20px rgba(0, 217, 255, 0.4),
+        0 0 40px rgba(0, 217, 255, 0.3),
+        0 0 60px rgba(0, 217, 255, 0.2);
+}
+
+.glow-blue {
+    box-shadow:
+        0 0 30px rgba(61, 90, 128, 0.5),
+        0 0 60px rgba(61, 90, 128, 0.3);
+}
+
+.premium-button {
+    position: relative;
+    background: linear-gradient(135deg, #00D9FF 0%, #0A7EA4 100%);
+    border: 3px solid #00D9FF;
+    color: #000000;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.premium-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.5s ease;
+}
+
+.premium-button:hover::before {
+    left: 100%;
+}
+
+.premium-button:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 15px 40px rgba(0, 217, 255, 0.5),
+        0 0 80px rgba(0, 217, 255, 0.4);
+    border-color: #7DD3FC;
+}
+
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: radial-gradient(circle, #00D9FF, transparent);
+    border-radius: 50%;
+    animation: particleFloat 10s infinite;
+}
+
+@keyframes particleFloat {
+    0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-100vh) translateX(50px);
+        opacity: 0;
+    }
+}
+
+.scan-line {
+    position: relative;
+    overflow: hidden;
+}
+
+.scan-line::after {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(transparent, rgba(0, 217, 255, 0.3), transparent);
+    animation: scan 3s ease-in-out infinite;
+}
+
+@keyframes scan {
+    0% {
+        top: -100%;
+    }
+
+    50% {
+        top: 100%;
+    }
+
+    100% {
+        top: 100%;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000000;
+    border-left: 2px solid #00D9FF;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #00D9FF, #0A7EA4);
+    border: 2px solid #000000;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #00D9FF;
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
